@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ben Yaptım</title>
+</head>
+<body>
+	
+	<div id="content">
+
+		<img src="resim.jpg" alt="Bıdı Bıdı">		
+		<div class="item" data-top="350" data-left="250" data-width="80" data-height="50" data-title="Sol Göz"></div>
+		<div class="item" data-top="350" data-left="450" data-width="80" data-height="50" data-title="Sağ Göz"></div>
+		<div class="item" data-top="450" data-left="330" data-width="120" data-height="60" data-title="Burun"></div>
+		<div class="item" data-top="560" data-left="330" data-width="120" data-height="60" data-title="Ağız"></div>
+		<div class="item" data-top="360" data-left="150" data-width="120" data-height="50" data-title="Sol Kulak"></div>
+		<div class="item" data-top="360" data-left="500" data-width="120" data-height="50" data-title="Sağ Kulak"></div>
+		
+	</div>
+
+	
+	<script>
+	
+		var content = document.getElementById('content').style.position = "relative";		
+		var items = document.getElementsByClassName('item');
+
+		for (var i = 0; i < items.length; i++) {
+
+			items[i].addEventListener('mouseover',function(){showTitle(this)});
+
+			items[i].style.position = "absolute";
+
+			var p_left  = items[i].getAttribute('data-left')+"px";
+			var p_top  = items[i].getAttribute('data-top')+"px";
+			var width  = items[i].getAttribute('data-width')+"px";
+			var height  = items[i].getAttribute('data-height')+"px";
+
+			items[i].style.left = p_left;
+			items[i].style.top = p_top;
+			items[i].style.width = width;
+			items[i].style.height = height;
+			// items[i].style.background = "red"; // Bu kısmı yerleştirdikten sonra silebilirsin.
+
+		}
+
+		function showTitle(element){	
+			alert(element.getAttribute('data-title'));
+		}	
+
+
+	</script>
+
+</body>
+</html>
